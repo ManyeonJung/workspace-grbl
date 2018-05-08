@@ -433,7 +433,22 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
 
 
         loadWidgets: function(callback) {
-
+        	chilipeppr.load(
+			  "#myDivWidgetXbox",
+			  "https://raw.githubusercontent.com/chilipeppr/widget-xbox/master/auto-generated-widget.html",
+			  function() {
+			    // Callback after widget loaded into #myDivWidgetXbox
+			    // Now use require.js to get reference to instantiated widget
+			    cprequire(
+			      ["inline:com-chilipeppr-widget-xbox"], // the id you gave your widget
+			      function(myObjWidgetXbox) {
+			        // Callback that is passed reference to the newly loaded widget
+			        console.log("Widget / Xbox just got loaded.", myObjWidgetXbox);
+			        myObjWidgetXbox.init();
+			      }
+			    );
+			  }
+			);
             // GRBL
             // http://jsfiddle.net/jarret/b5L2rtgc/ //alternate test version of grbl controller
             // com-chilipeppr-grbl
@@ -1619,6 +1634,8 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
                     <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
                     <!-- Tinyg -->
                     <div id="com-chilipeppr-grbl" class="">Load GRBL Here</div>
+
+                    <div id="myDivWidgetXbox">xbox_widget</div>
                     <!-- WebRTC Client -->
                     <!--<div id="com-chilipeppr-webrtcclient" class="">Load WebRTC Client Here</div>-->
                     <!-- Serial Port Selector -->

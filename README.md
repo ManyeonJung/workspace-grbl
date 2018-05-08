@@ -1,7 +1,7 @@
 # com-chilipeppr-workspace-grbl
 A ChiliPeppr workspace for Grbl.
 
-
+xbox_widget add
 
 ## ChiliPeppr Workspace / grbl
 
