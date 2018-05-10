@@ -472,6 +472,23 @@ cpdefine("inline:com-chilipeppr-workspace-grbl", ["chilipeppr_ready"], function(
                         });
                     });
                 });
+                
+                chilipeppr.load(
+                  "#myDivWidgetXbox",
+                  "https://raw.githubusercontent.com/ManyeonJung/widget-xbox/master/auto-generated-widget.html",
+                  function() {
+                    // Callback after widget loaded into #myDivWidgetXbox
+                    // Now use require.js to get reference to instantiated widget
+                    cprequire(
+                      ["inline:com-chilipeppr-widget-xbox"], // the id you gave your widget
+                      function(myObjWidgetXbox) {
+                        // Callback that is passed reference to the newly loaded widget
+                        console.log("Widget / Xbox just got loaded.", myObjWidgetXbox);
+                        myObjWidgetXbox.init();
+                      }
+                    );
+                  }
+                );
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
